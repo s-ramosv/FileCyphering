@@ -1,7 +1,5 @@
 package FileCypher;
 
-import java.awt.*;
-import java.util.*;
 import java.io.*;
 
 public class Cypher {
@@ -37,12 +35,16 @@ public class Cypher {
         return (char) ((256 + ch - key.charAt(offset))%256);
     }
 
-    private void copyFileCharByChar() throws IOException{
+    private void encOrDecript() throws IOException{
 
         try (FileInputStream input = new FileInputStream(originFile); FileOutputStream output = new FileOutputStream(newFile)) {
             int offset = 0, keylen = key.length(), c;
-
-            while ((c = input.read()) != -1) {
+            if(encDec)
+                while ((c = input.read()) != -1) {
+                    output.write(cypherChar(c,offset));
+                    offset = offset == keylen-1 ? 0 : offset+1;
+                }
+            else while ((c = input.read()) != -1) {
                 output.write(unCypherChar(c,offset));
                 offset = offset == keylen-1 ? 0 : offset+1;
             }
@@ -61,7 +63,7 @@ public class Cypher {
             System.exit(-1);
             return;
         }
-        fileCypher.copyFileCharByChar();
+        fileCypher.encOrDecript();
     }
 
 }

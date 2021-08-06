@@ -1,0 +1,24 @@
+
+.button {
+    width:200px; 
+    height:200px; 
+    margin:100px auto 100px auto;
+    display:block;
+    transition: all .5s ease-in-out;
+
+}
+
+.button:hover {
+  /*  Making button bigger on hover  */
+    transform: scale(1.2) perspective(1px)
+  }
+
+img {
+    display: inline-block;
+    width:70px;
+    height:70px;
+    margin:50px 50px 50px 50px;
+    position:absolute;
+    left:2px;
+    top:-13px
+}

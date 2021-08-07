@@ -10,16 +10,18 @@ const FileUploadButton = props => {  // Create a reference to the hidden file in
   // when the Button component is clicked
   const handleClick = event => {
     hiddenFileInput.current.click();
-  };  // Call a function (passed as a prop from the parent component)
-  // to handle the user-selected file 
+  };
+  // Call a function (passed as a prop from the parent component)
+  // to handle the user-selected file
   const handleChange = event => {
     const fileUploaded = event.target.files[0];
     props.handleFile(fileUploaded);
-  };  return (
+
+  };
+  return (
     <>
-      <button>
       <img className = {button_styles.button} onClick = {handleClick} src={MyImage} alt="my image" />
-      </button>
+
       <input
         type="file"
         ref = {hiddenFileInput}

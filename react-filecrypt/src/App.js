@@ -7,9 +7,6 @@ import FileUploadButton from './FileUploadButton'
 function App() {
   return (
     <React.Fragment>
-      <div>
-        <Comp />
-      </div>
       <div><FileUploadButton/></div>
     </React.Fragment>
   )
